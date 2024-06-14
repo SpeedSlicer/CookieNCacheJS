@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie and Cache Management API Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Courier New', Courier, monospace;
+            font-size: 14px;
+            background-color: #eaeaea;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-header {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .function-article {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cookie's Cache JS API</h1>
+        </header>
+
+        <section class="section" id="cookie-functions">
+            <div class="section-header">
+                <h2>Cookie Management Functions</h2>
+            </div>
+
+            <article class="function-article" id="cookie-set-function">
+                <h3><code>cookie.set(name, value, daysToLive)</code></h3>
+                <pre>
+                    Sets a cookie with the provided name, value, and optional daysToLive.
+
+                    Parameters:
+                    - name (string): The name of the cookie.
+                    - value (string): The value to set for the cookie.
+                    - daysToLive (number, optional): Number of days until the cookie expires. If not provided, the cookie will be session-based.
+
+                    Usage:
+                    cookie.set("username", "john_doe", 7);
+                </pre>
+            </article>
+
+            <article class="function-article" id="cookie-get-function">
+                <h3><code>cookie.get(name)</code></h3>
+                <pre>
+                    Gets the value of the cookie with the specified name.
+
+                    Parameters:
+                    - name (string): The name of the cookie to retrieve.
+
+                    Returns:
+                    - (string | null): Returns the value of the cookie if found, or null if the cookie does not exist.
+
+                    Usage:
+                    var username = cookie.get("username");
+                </pre>
+            </article>
+
+            <article class="function-article" id="cookie-delete-function">
+                <h3><code>cookie.delete(name)</code></h3>
+                <pre>
+                    Deletes the cookie with the specified name.
+
+                    Parameters:
+                    - name (string): The name of the cookie to delete.
+
+                    Usage:
+                    cookie.delete("username");
+                </pre>
+            </article>
+
+            <article class="function-article" id="cookie-exists-function">
+                <h3><code>cookie.exists(name)</code></h3>
+                <pre>
+                    Checks if a cookie with the specified name exists.
+
+                    Parameters:
+                    - name (string): The name of the cookie to check.
+
+                    Returns:
+                    - (boolean): Returns true if the cookie exists, otherwise false.
+
+                    Usage:
+                    var exists = cookie.exists("username");
+                </pre>
+            </article>
+        </section>
+
+        <section class="section" id="cache-functions">
+            <div class="section-header">
+                <h2>Cache Management Functions (Session Storage)</h2>
+            </div>
+
+            <article class="function-article" id="cache-set-function">
+                <h3><code>cache.set(key, value)</code></h3>
+                <pre>
+                    Sets an item in session storage with the provided key and value.
+
+                    Parameters:
+                    - key (string): The key to set in session storage.
+                    - value (any): The value to store. Will be JSON stringified before storage.
+
+                    Usage:
+                    cache.set("userDetails", { username: "john_doe", role: "admin" });
+                </pre>
+            </article>
+
+            <article class="function-article" id="cache-get-function">
+                <h3><code>cache.get(key)</code></h3>
+                <pre>
+                    Gets the value of the item from session storage based on the provided key.
+
+                    Parameters:
+                    - key (string): The key of the item to retrieve from session storage.
+
+                    Returns:
+                    - (any | null): Returns the parsed JSON value from session storage if found, or null if the key does not exist.
+
+                    Usage:
+                    var userDetails = cache.get("userDetails");
+                </pre>
+            </article>
+
+            <article class="function-article" id="cache-delete-function">
+                <h3><code>cache.delete(key)</code></h3>
+                <pre>
+                    Deletes the item from session storage based on the provided key.
+
+                    Parameters:
+                    - key (string): The key of the item to delete from session storage.
+
+                    Usage:
+                    cache.delete("userDetails");
+                </pre>
+            </article>
+
+            <article class="function-article" id="cache-clear-function">
+                <h3><code>cache.clear()</code></h3>
+                <pre>
+                    Clears all items from session storage.
+
+                    Usage:
+                    cache.clear();
+                </pre>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
